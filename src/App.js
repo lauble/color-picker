@@ -1,6 +1,5 @@
 import './App.css';
 import ColorCard from './components/ColorCard';
-import { useState } from 'react';
 
 const getRandomColor = () => {
   let randomColor = '#000000'.replace(/0/g, function () {
@@ -9,17 +8,17 @@ const getRandomColor = () => {
   return randomColor;
 };
 
-let hexCode1 = getRandomColor();
-let hexCode2 = getRandomColor();
-let hexCode3 = getRandomColor();
-let hexCode4 = getRandomColor();
-
+const colorCard = document.getElementById('color-card');
 
 function App() {
-  const [isLocked, setIsLocked] = useState(false)
-  const handleClick = (e) => {
-    console.log(e.target.value)
-  }
+  const generateColors = () => {
+    if (colorCard) {
+      colorCard.style.backgroundColor = getRandomColor();
+    } else {
+      return;
+    }
+  };
+
   return (
     <div className="App">
       <header>
@@ -27,12 +26,10 @@ function App() {
       </header>
       <h3>Choices</h3>
       <div id="card-container">
-        <ColorCard value={"hex1"} locked={false} hexCode={hexCode1} onClick={handleClick}/>
-        <ColorCard value={"hex2"} locked={false} hexCode={hexCode2} />
-        <ColorCard value={"hex3"} locked={false} hexCode={hexCode3} />
-        <ColorCard value={"hex4"} locked={false} hexCode={hexCode4} />
+        <ColorCard hexCode={getRandomColor()} locked={false} />
+        <ColorCard hexCode={getRandomColor()} locked={false} />
       </div>
-      <button>Generate Colors</button>
+      <button onClick={generateColors}>Generate Colors</button>
     </div>
   );
 }
