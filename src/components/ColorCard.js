@@ -11,16 +11,16 @@ const getRandomColor = () => {
 export default function ColorCard(props) {
   const [background, setBackground] = useState('');
   const [locked, setLocked] = useState(false);
-  
+
   const setBackgroundColor = () => {
     let color = getRandomColor();
     setBackground(color);
   };
-  
+
   const handleLock = () => {
     setLocked(!locked);
   };
-  
+
   return (
     <div id="color-card" style={{ backgroundColor: background }}>
       <h5>{background ? background : '#ffffff'}</h5>

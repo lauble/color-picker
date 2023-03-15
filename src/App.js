@@ -1,19 +1,9 @@
 import './App.css';
 import ColorCard from './components/ColorCard';
 
-let randomColor = '';
-const colorCard = document.getElementById('color-card');
-
-const getRandomColor = () => {
-  randomColor = '#000000'.replace(/0/g, function () {
-    return (~~(Math.random() * 16)).toString(16);
-  });
-  return randomColor;
-};
-
 function App() {
   const generateColors = () => {
-    console.log(getRandomColor())
+    console.log('hello world');
   };
 
   return (
@@ -23,8 +13,8 @@ function App() {
       </header>
       <h3>Choices</h3>
       <div id="card-container">
-        <ColorCard style={{"backgroundColor": getRandomColor()}} />
-        <ColorCard style={{"backgroundColor": getRandomColor()}} />
+        <ColorCard />
+        <ColorCard />
       </div>
       <button onClick={generateColors}>Generate Colors</button>
     </div>
