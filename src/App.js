@@ -2,9 +2,10 @@ import './App.css';
 import { useState } from 'react';
 import ColorCard from './components/ColorCard';
 import Modal from 'react-modal';
+import { AiFillUnlock, AiFillLock, AiFillCopy } from 'react-icons/ai';
 
-const hexcode = document.getElementById('hexcode');
-console.log(hexcode);
+// const hexcode = document.getElementById('hexcode');
+// console.log(hexcode);
 
 Modal.setAppElement('#root');
 
@@ -12,10 +13,13 @@ const modalStyle = {
   content: {
     top: '50%',
     left: '50%',
-    right: 'auto',
+    right: '50%',
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    borderRadius: '20px',
+    backgroundColor: '#8c7851',
+    color: '#eaddcf',
   },
 };
 
@@ -26,8 +30,6 @@ function App() {
 
   const [colorCardList, setColorCardList] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
-
-  // console.log(colorCardList[0])
 
   const onAddBtnClick = () => {
     setColorCardList(colorCardList.concat(<ColorCard />));
@@ -49,6 +51,7 @@ function App() {
         </button>
         <button onClick={onAddBtnClick}>Add New Color Card</button>
         <button onClick={generateColors}>Get Random Colors</button>
+        <button onClick={generateColors}>Copy Collection</button>
       </div>
       <Modal
         isOpen={modalOpen}
@@ -57,7 +60,26 @@ function App() {
         contentLabel="Instructions"
       >
         <h3>Welcome!</h3>
-        <p></p>
+
+        <ul>
+          <li>
+            [ Add New Color Card ] - adds a new color card to your collection
+          </li>
+          <li>
+            [ Get Random Colors ] - gets random colors for every card on your
+            screen
+          </li>
+          <li>
+            [ Copy Collection ] - copies all hex codes from current collection
+          </li>
+          <li>
+            [ <AiFillUnlock /> ] - toggles between locking and unlocking the
+            color on the card
+          </li>
+          <li>
+            [ <AiFillCopy /> ] - copies the hex code to your clipboard
+          </li>
+        </ul>
       </Modal>
       <header>
         <h1>Color Picker</h1>

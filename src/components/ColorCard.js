@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-  AiFillUnlock,
-  AiFillLock,
-  AiFillCopy,
-  AiOutlineCheck,
-} from 'react-icons/ai';
+import { AiFillUnlock, AiFillLock, AiFillCopy } from 'react-icons/ai';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const getRandomColor = () => {
@@ -41,7 +36,7 @@ export default function ColorCard(props) {
   return (
     <div id="color-card" style={{ backgroundColor: background }}>
       <h5 id="hexcode" style={{ color: 'black' }}>
-        {background ? background : '#ffffff'}
+        {background}
       </h5>
       <button id="bg-btn" onClick={setBackgroundColor}>
         Get New Color
@@ -56,9 +51,7 @@ export default function ColorCard(props) {
           </button>
         </CopyToClipboard>
       </div>
-      <div id="copy-msg">
-        {copied === true ? 'code copied' : null}
-      </div>
+      <div id="copy-msg">{copied === true ? 'code copied' : null}</div>
     </div>
   );
 }
