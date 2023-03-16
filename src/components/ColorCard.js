@@ -13,6 +13,9 @@ export default function ColorCard(props) {
   const [locked, setLocked] = useState(false);
   
   const setBackgroundColor = () => {
+    if (locked) {
+      return;
+    }
     let color = getRandomColor();
     setBackground(color);
   };
@@ -23,11 +26,11 @@ export default function ColorCard(props) {
   
   return (
     <div id="color-card" style={{ backgroundColor: background }}>
-      <h5>{background ? background : '#ffffff'}</h5>
+      <h5 style={{"color": "black"}}>{background ? background : '#ffffff'}</h5>
       <button onClick={handleLock}>
         {locked === false ? <AiFillUnlock /> : <AiFillLock />}
       </button>
-      <button onClick={setBackgroundColor}>Change Color</button>
+      <button onClick={setBackgroundColor}>Get New Color</button>
     </div>
   );
 }

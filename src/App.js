@@ -42,6 +42,8 @@ function App() {
         <button id="instructions-btn" onClick={openModal}>
           Welcome
         </button>
+        <button onClick={onAddBtnClick}>Add New Color Card</button>
+        <button onClick={generateColors}>Get Random Colors</button>
       </div>
       <Modal
         isOpen={modalOpen}
@@ -55,13 +57,11 @@ function App() {
       <header>
         <h1>Color Picker</h1>
       </header>
-      <button onClick={onAddBtnClick}>Add New Color Card</button>
       <h3>Choices</h3>
       <div id="card-container">
         <ColorCard />
         {colorCardList}
       </div>
-      <button onClick={generateColors}>Generate Colors</button>
     </div>
   );
 }
