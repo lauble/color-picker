@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { AiFillUnlock, AiFillLock } from 'react-icons/ai';
+import {
+  AiFillUnlock,
+  AiFillLock,
+  AiFillCopy,
+  AiOutlineCheck,
+} from 'react-icons/ai';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const getRandomColor = () => {
   let randomColor = '#000000'.replace(/0/g, function () {
@@ -9,9 +15,10 @@ const getRandomColor = () => {
 };
 
 export default function ColorCard(props) {
-  const [background, setBackground] = useState('');
+  const [background, setBackground] = useState('#ffffff');
   const [locked, setLocked] = useState(false);
-  
+  const [copied, setCopied] = useState(false);
+
   const setBackgroundColor = () => {
     if (locked) {
       return;
@@ -19,18 +26,39 @@ export default function ColorCard(props) {
     let color = getRandomColor();
     setBackground(color);
   };
-  
+
   const handleLock = () => {
     setLocked(!locked);
   };
-  
+
+  const handleCopy = () => {
+    setTimeout(() => {
+      setCopied(false);
+    }, 3000);
+    setCopied(true);
+  };
+
   return (
     <div id="color-card" style={{ backgroundColor: background }}>
-      <h5 style={{"color": "black"}}>{background ? background : '#ffffff'}</h5>
-      <button onClick={handleLock}>
-        {locked === false ? <AiFillUnlock /> : <AiFillLock />}
+      <h5 id="hexcode" style={{ color: 'black' }}>
+        {background ? background : '#ffffff'}
+      </h5>
+      <button id="bg-btn" onClick={setBackgroundColor}>
+        Get New Color
       </button>
-      <button onClick={setBackgroundColor}>Get New Color</button>
+      <div>
+        <button id="lock-btn" onClick={handleLock}>
+          {locked === false ? <AiFillUnlock /> : <AiFillLock />}
+        </button>
+        <CopyToClipboard text={background}>
+          <button id="copy-btn" onClick={handleCopy}>
+            {<AiFillCopy />}
+          </button>
+        </CopyToClipboard>
+      </div>
+      <div id="copy-msg">
+        {copied === true ? 'code copied' : null}
+      </div>
     </div>
   );
 }

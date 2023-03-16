@@ -3,6 +3,9 @@ import { useState } from 'react';
 import ColorCard from './components/ColorCard';
 import Modal from 'react-modal';
 
+const hexcode = document.getElementById('hexcode');
+console.log(hexcode);
+
 Modal.setAppElement('#root');
 
 const modalStyle = {
@@ -23,6 +26,8 @@ function App() {
 
   const [colorCardList, setColorCardList] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
+
+  // console.log(colorCardList[0])
 
   const onAddBtnClick = () => {
     setColorCardList(colorCardList.concat(<ColorCard />));
@@ -57,7 +62,7 @@ function App() {
       <header>
         <h1>Color Picker</h1>
       </header>
-      <h3>Choices</h3>
+      <h3>Color Cards</h3>
       <div id="card-container">
         <ColorCard />
         {colorCardList}

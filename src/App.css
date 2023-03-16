@@ -19,6 +19,7 @@ body {
   gap: 20px;
   padding: 20px;
   background-color: #eaddcf;
+  width: auto;
 }
 
 #card-container {
@@ -52,4 +53,33 @@ button {
   border-radius: 5px;
   background-color: #8c7851;
   color: #f9f4ef;
+  cursor: pointer;
+}
+
+#lock-btn, #bg-btn, #copy-btn {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+  font-weight: bold;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: black;
+  cursor: pointer;
+}
+
+#hexcode {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+  font-weight: bold;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#copy-msg {
+  color: red;
+  background-color: #ffffff;
+  font-size: small;
+  padding: 2px;
 }
