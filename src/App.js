@@ -50,8 +50,9 @@ function App() {
           Welcome
         </button>
         <button onClick={onAddBtnClick}>Add New Color Card</button>
-        <button onClick={generateColors}>Get Random Colors</button>
-        <button onClick={generateColors}>Copy Collection</button>
+        <button onClick={generateColors}>Surprise Me!</button>
+        <button>Copy Collection</button>
+        <button>Saved Collections</button>
       </div>
       <Modal
         isOpen={modalOpen}
@@ -66,12 +67,12 @@ function App() {
             [ Add New Color Card ] - adds a new color card to your collection
           </li>
           <li>
-            [ Get Random Colors ] - gets random colors for every card on your
-            screen
+            [ Surprise Me! ] - gets random colors for every card on your screen
           </li>
           <li>
             [ Copy Collection ] - copies all hex codes from current collection
           </li>
+          <li>[ Saved Collections ] - see all saved collections</li>
           <li>
             [ <AiFillUnlock /> ] - toggles between locking and unlocking the
             color on the card
