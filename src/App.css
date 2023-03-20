@@ -58,7 +58,7 @@ button, .nav-link {
   cursor: pointer;
 }
 
-#lock-btn, #bg-btn, #copy-btn {
+.other-btns {
   font-family: 'Courier New', Courier, monospace;
   font-size: medium;
   font-weight: bold;
@@ -84,4 +84,21 @@ button, .nav-link {
   background-color: #ffffff;
   font-size: small;
   padding: 2px;
+}
+
+#collection {
+  width: auto;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+#collection-card {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: #ffffff;
 }

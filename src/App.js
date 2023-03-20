@@ -2,11 +2,8 @@ import './App.css';
 import { useState } from 'react';
 import ColorCard from './components/ColorCard';
 import Modal from 'react-modal';
-import { AiFillUnlock, AiFillLock, AiFillCopy } from 'react-icons/ai';
+import { AiFillUnlock, AiFillCopy } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
-
-// const hexcode = document.getElementById('hexcode');
-// console.log(hexcode);
 
 Modal.setAppElement('#root');
 
@@ -24,16 +21,16 @@ const modalStyle = {
   },
 };
 
+export const collectionData = [];
+
 function App() {
-  const generateColors = () => {
-    console.log('hello world');
-  };
 
   const [colorCardList, setColorCardList] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
 
   const onAddBtnClick = () => {
     setColorCardList(colorCardList.concat(<ColorCard />));
+    console.log(colorCardList)
   };
 
   const openModal = () => {
@@ -54,9 +51,10 @@ function App() {
           Home
         </NavLink>
         <button onClick={onAddBtnClick}>Add New Color Card</button>
-        <button onClick={generateColors}>Surprise Me!</button>
-        <button>Copy Collection</button>
-        <NavLink className="nav-link" to="/collection">My Collection</NavLink>
+        <button>Surprise Me!</button>
+        <NavLink className="nav-link" to="/collection">
+          My Collection
+        </NavLink>
       </div>
       <Modal
         isOpen={modalOpen}
@@ -65,7 +63,6 @@ function App() {
         contentLabel="Instructions"
       >
         <h3>Welcome!</h3>
-
         <ul>
           <li>
             [ Add New Color Card ] - adds a new color card to your collection

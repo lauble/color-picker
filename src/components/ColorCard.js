@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AiFillUnlock, AiFillLock, AiFillCopy } from 'react-icons/ai';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { collectionData } from '../App';
 
 const getRandomColor = () => {
   let randomColor = '#000000'.replace(/0/g, function () {
@@ -10,6 +11,7 @@ const getRandomColor = () => {
 };
 
 export default function ColorCard(props) {
+
   const [background, setBackground] = useState('#ffffff');
   const [locked, setLocked] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -33,20 +35,25 @@ export default function ColorCard(props) {
     setCopied(true);
   };
 
+  const addToCollection = () => {
+    collectionData.push(background)
+  }
+
   return (
     <div id="color-card" style={{ backgroundColor: background }}>
       <h5 id="hexcode" style={{ color: 'black' }}>
         {background}
       </h5>
-      <button id="bg-btn" onClick={setBackgroundColor}>
+      <button className='other-btns' onClick={setBackgroundColor}>
         Get New Color
       </button>
+        <button className='other-btns' onClick={addToCollection}>Add To Collection</button>
       <div>
-        <button id="lock-btn" onClick={handleLock}>
+        <button className='other-btns' onClick={handleLock}>
           {locked === false ? <AiFillUnlock /> : <AiFillLock />}
         </button>
         <CopyToClipboard text={background}>
-          <button id="copy-btn" onClick={handleCopy}>
+          <button className='other-btns' onClick={handleCopy}>
             {<AiFillCopy />}
           </button>
         </CopyToClipboard>
