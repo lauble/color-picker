@@ -42,12 +42,14 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  box-shadow: 2px 2px black;
 }
 
-button {
+button, .nav-link {
   font-family: 'Courier New', Courier, monospace;
   font-size: medium;
   font-weight: bold;
+  text-decoration: none;
   width: fit-content;
   padding: 5px;
   border-radius: 5px;
