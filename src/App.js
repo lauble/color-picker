@@ -49,6 +49,7 @@ function App() {
         <button id="instructions-btn" onClick={openModal}>
           Welcome
         </button>
+        <button>Home</button>
         <button onClick={onAddBtnClick}>Add New Color Card</button>
         <button onClick={generateColors}>Surprise Me!</button>
         <button>Copy Collection</button>
