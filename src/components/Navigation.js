@@ -1,21 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import NavLink from 'react-bootstrap/NavLink';
 
 export default function Navigation() {
   return (
-    <Navbar bg="light" expand="lg" color="pink">
+    <Navbar bg="light" variant="light">
       <Container>
-        <Navbar.Brand href="/home">Color Picker</Navbar.Brand>
+        <Navbar.Brand href="/">Color Picker</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/collection">Collection</Nav.Link>
-            <NavDropdown title="Help" id="basic-nav-dropdown">
-              <NavDropdown.Item>Instructions</NavDropdown.Item>
-            </NavDropdown>
+            <NavLink>
+              <Link className="text-decoration-none text-white" to="/">
+                Home
+              </Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

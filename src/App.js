@@ -2,8 +2,10 @@ import './App.css';
 import { useState } from 'react';
 import ColorCard from './components/ColorCard';
 import Navigation from './components/Navigation';
+import AppRoutes from './components/Routes';
 import Modal from 'react-modal';
 import { AiFillUnlock, AiFillCopy } from 'react-icons/ai';
+import { BrowserRouter } from 'react-router-dom';
 
 Modal.setAppElement('#root');
 
@@ -43,10 +45,13 @@ function App() {
 
   return (
     <div className="App">
-        <Navigation />
+        {/* <Navigation /> */}
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
       <div id="nav">
-        <button id="instructions-btn" onClick={openModal}>
-          Welcome
+        <button className="app-btn" onClick={openModal}>
+          Help
         </button>
       </div>
       <Modal
@@ -80,7 +85,7 @@ function App() {
         <h1>Color Picker</h1>
       </header>
       <h3>Color Cards</h3>
-      <button onClick={onAddBtnClick}>Add Color Card</button>
+      <button className="app-btn" onClick={onAddBtnClick}>Add Color Card</button>
       <div id="card-container">
         <ColorCard />
         {colorCardList}

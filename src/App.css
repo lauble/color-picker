@@ -45,18 +45,18 @@ body {
   box-shadow: 2px 2px black;
 }
 
-/* button, .nav-link { */
-  /* font-family: 'Courier New', Courier, monospace; */
-  /* font-size: medium; */
-  /* font-weight: bold; */
-  /* text-decoration: none; */
-  /* width: fit-content; */
-  /* padding: 5px; */
-  /* border-radius: 5px; */
-  /* background-color: #8c7851; */
-  /* color: #f9f4ef; */
-  /* cursor: pointer; */
-/* } */
+.app-btn {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+  font-weight: bold;
+  text-decoration: none;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #8c7851;
+  color: #f9f4ef;
+  cursor: pointer;
+}
 
 .other-btns {
   font-family: 'Courier New', Courier, monospace;
