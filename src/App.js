@@ -1,9 +1,9 @@
 import './App.css';
 import { useState } from 'react';
 import ColorCard from './components/ColorCard';
+import Navigation from './components/Navigation';
 import Modal from 'react-modal';
 import { AiFillUnlock, AiFillCopy } from 'react-icons/ai';
-import { NavLink } from 'react-router-dom';
 
 Modal.setAppElement('#root');
 
@@ -43,18 +43,11 @@ function App() {
 
   return (
     <div className="App">
+        <Navigation />
       <div id="nav">
         <button id="instructions-btn" onClick={openModal}>
           Welcome
         </button>
-        <NavLink className="nav-link" to="/" end>
-          Home
-        </NavLink>
-        <button onClick={onAddBtnClick}>Add New Color Card</button>
-        <button>Surprise Me!</button>
-        <NavLink className="nav-link" to="/collection">
-          My Collection
-        </NavLink>
       </div>
       <Modal
         isOpen={modalOpen}
@@ -65,7 +58,7 @@ function App() {
         <h3>Welcome!</h3>
         <ul>
           <li>
-            [ Add New Color Card ] - adds a new color card to your collection
+            [ Add Color Card ] - adds a new color card to your collection
           </li>
           <li>
             [ Surprise Me! ] - gets random colors for every card on your screen
@@ -87,6 +80,7 @@ function App() {
         <h1>Color Picker</h1>
       </header>
       <h3>Color Cards</h3>
+      <button onClick={onAddBtnClick}>Add Color Card</button>
       <div id="card-container">
         <ColorCard />
         {colorCardList}
